@@ -172,7 +172,7 @@ begin
      with _Model do
      begin
           G := Barycenter;
-          for I := 1 to PoinModel.ChildsN-1 do
+          for I := 0 to PoinModel.ChildsN-1 do
           begin
                with PoinModel.Childs[ I ] do Pos := Pos - G;
           end;
