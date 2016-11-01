@@ -1,6 +1,6 @@
-unit Main;
+ï»¿unit Main;
 
-interface //#################################################################### ¡
+interface //#################################################################### â– 
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
@@ -35,11 +35,11 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
-    { private éŒ¾ }
+    { private å®£è¨€ }
     _MouseS :TShiftState;
     _MouseP :TPointF;
   public
-    { public éŒ¾ }
+    { public å®£è¨€ }
     _Model :TNoduModel;
     _Shape :TNoduShape;
     _CornN :Integer;
@@ -49,7 +49,7 @@ type
 var
   Form1: TForm1;
 
-implementation //############################################################### ¡
+implementation //############################################################### â– 
 
 {$R *.fmx}
 
@@ -74,8 +74,8 @@ begin
           Model  := _Model;
      end;
 
-     _CornN := 10{Šp};
-     _SegmN := 5{•ªŠ„};
+     _CornN := 10{è§’};
+     _SegmN := 5{åˆ†å‰²};
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
@@ -117,8 +117,8 @@ end;
 //------------------------------------------------------------------------------
 
 procedure TForm1.Button1Click(Sender: TObject);
-//¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
-     procedure MakeWire( const P0_,P1_:TNoduPoin );  //•ªŠ„“_‚Ì¶¬
+//ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥
+     procedure MakeWire( const P0_,P1_:TNoduPoin );  //åˆ†å‰²ç‚¹ã®ç”Ÿæˆ
      var
         I :Integer;
         P0, P1 :TNoduPoin;
@@ -141,15 +141,15 @@ procedure TForm1.Button1Click(Sender: TObject);
           W.Poin0 := P0;
           W.Poin1 := P1_;
      end;
-//¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥¥
+//ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥ï½¥
 var
    I :Integer;
    P0, P1, P2 :TNoduPoin;
    G :TSingle3D;
 begin
-     _Model.DeleteChilds;  //ƒ‚ƒfƒ‹‚ğ”jŠü
+     _Model.DeleteChilds;  //ãƒ¢ãƒ‡ãƒ«ã‚’ç ´æ£„
 
-     ///// Šp“_‚Ì¶¬
+     ///// è§’ç‚¹ã®ç”Ÿæˆ
 
      P2 := TNoduPoin.Create( _Model.PoinModel );
      P2.Pos := 2 * TSingle3D.RandBS1;
@@ -167,7 +167,7 @@ begin
 
      MakeWire( P1, P2 );
 
-     ///// dS‚ğŒ´“_‚ÖˆÚ“®
+     ///// é‡å¿ƒã‚’åŸç‚¹ã¸ç§»å‹•
 
      with _Model do
      begin
@@ -178,7 +178,7 @@ begin
           end;
      end;
 
-     _Shape.MakeGeometry;  //ƒ|ƒŠƒSƒ“‚Ì\’z
+     _Shape.MakeGeometry;  //ãƒãƒªã‚´ãƒ³ã®æ§‹ç¯‰
 end;
 
 //------------------------------------------------------------------------------
@@ -187,61 +187,61 @@ procedure TForm1.Timer1Timer(Sender: TObject);
 var
    N :Integer;
 begin
-     for N := 1 to 10 do  //‚PƒtƒŒ[ƒ€“à‚ÌXV”
+     for N := 1 to 10 do  //ï¼‘ãƒ•ãƒ¬ãƒ¼ãƒ å†…ã®æ›´æ–°æ•°
      begin
-          ///// ’¸“_‚Ì—Í‚ğƒ[ƒ‚É‰Šú‰»
+          ///// é ‚ç‚¹ã®åŠ›ã‚’ã‚¼ãƒ­ã«åˆæœŸåŒ–
 
-          TParallel.For( 0, _Model.PoinModel.ChildsN-1, procedure( I:Integer )  //‚·‚×‚Ä‚Ì’¸“_‚ğ‘–¸
+          TParallel.For( 0, _Model.PoinModel.ChildsN-1, procedure( I:Integer )  //ã™ã¹ã¦ã®é ‚ç‚¹ã‚’èµ°æŸ»
           begin
-               with _Model.PoinModel.Childs[ I ] do  //’¸“_
+               with _Model.PoinModel.Childs[ I ] do  //é ‚ç‚¹
                begin
-                    Force0 := TSingle3D.Create( 0, 0, 0 );  //—Í‚ğƒ[ƒ‚É‰Šú‰»
+                    Force0 := TSingle3D.Create( 0, 0, 0 );  //åŠ›ã‚’ã‚¼ãƒ­ã«åˆæœŸåŒ–
                     Force1 := TSingle3D.Create( 0, 0, 0 );
                end;
           end,
           _ThreadPool );
 
-          ///// ’¸“_‚Ì—Í‚ğƒ[ƒ‚É‰Šú‰»
+          ///// ç·šåˆ†ã‹ã‚‰ã®åŠ›ã‚’é ‚ç‚¹ã¸åŠ ç®—
 
-          TParallel.For( 0, _Model.ChildsN-1, procedure( I:Integer )  //‚·‚×‚Ä‚Ìü•ª‚ğ‘–¸
+          TParallel.For( 0, _Model.ChildsN-1, procedure( I:Integer )  //ã™ã¹ã¦ã®ç·šåˆ†ã‚’èµ°æŸ»
           var
              W0, W1 :TNoduWire;
              F, V :TSingle3D;
              J :Integer;
              L2, L, E :Single;
           begin
-               W0 := _Model.Childs[ I ];  //ü•ª‚O
+               W0 := _Model.Childs[ I ];  //ç·šåˆ†ï¼
 
-               ///// ü•ª‚Ìûk
+               ///// ç·šåˆ†ã®åç¸®
 
-               V := W0.Vector;  //ƒxƒNƒgƒ‹
+               V := W0.Vector;  //ãƒ™ã‚¯ãƒˆãƒ«
 
-               L2 := V.Siz2;  L := Roo2( L2 );  //ƒxƒNƒgƒ‹’·
+               L2 := V.Siz2;  L := Roo2( L2 );  //ãƒ™ã‚¯ãƒˆãƒ«é•·
 
-               V := V / L;  //’PˆÊƒxƒNƒgƒ‹
+               V := V / L;  //å˜ä½ãƒ™ã‚¯ãƒˆãƒ«
 
-               E := L - 0;  //©‘R’·‚Íƒ[ƒ
+               E := L - 0;  //è‡ªç„¶é•·ã¯ã‚¼ãƒ­
 
                F := E * V;
 
                with W0.Poin0 do Force1 := Force1 + F;
                with W0.Poin1 do Force0 := Force0 - F;
 
-               ///// ü•ª“¯m‚Ì”½”­
+               ///// ç·šåˆ†åŒå£«ã®åç™º
 
                F := TSingle3D.Create( 0, 0, 0 );
                W1 := W0.Poin1.Wire1;
-               for J := 1 to _Model.ChildsN-3 do  //©•ª‚Æ—¼—×ˆÈŠO‚Ìü•ª‚ğ‘–¸
+               for J := 1 to _Model.ChildsN-3 do  //è‡ªåˆ†ã¨ä¸¡éš£ä»¥å¤–ã®ç·šåˆ†ã‚’èµ°æŸ»
                begin
-                    W1 := W1.Poin1.Wire1;  //ü•ª‚P
+                    W1 := W1.Poin1.Wire1;  //ç·šåˆ†ï¼‘
 
-                    V := W0.DistanTo( W1 );  //Å’Z‹——£ƒxƒNƒgƒ‹
+                    V := W0.DistanTo( W1 );  //æœ€çŸ­è·é›¢ãƒ™ã‚¯ãƒˆãƒ«
 
-                    L2 := V.Siz2;  L := Roo2( L2 );  //Å’Z‹——£ƒxƒNƒgƒ‹’·
+                    L2 := V.Siz2;  L := Roo2( L2 );  //æœ€çŸ­è·é›¢ãƒ™ã‚¯ãƒˆãƒ«é•·
 
-                    V := V / L;  //Å’Z‹——£‚Ì’PˆÊƒxƒNƒgƒ‹
+                    V := V / L;  //æœ€çŸ­è·é›¢ã®å˜ä½ãƒ™ã‚¯ãƒˆãƒ«
 
-                    E := 1 / L2 - 1;  if E < 0 then E := 0;  //”¼Œa‚PˆÈã‚Å‚Ì”½”­—Í‚Íƒ[ƒ
+                    E := 1 / L2 - 1;  if E < 0 then E := 0;  //åŠå¾„ï¼‘ä»¥ä¸Šã§ã®åç™ºåŠ›ã¯ã‚¼ãƒ­
 
                     F := F - E * V;
                end;
@@ -252,37 +252,37 @@ begin
           end,
           _ThreadPool );
 
-          ///// ’¸“_‚ğ—Í‚É‰‚¶‚ÄˆÚ“®
+          ///// é ‚ç‚¹ã‚’åŠ›ã«å¿œã˜ã¦ç§»å‹•
 
-          TParallel.For( 0, _Model.PoinModel.ChildsN-1, procedure( I:Integer )  //‚·‚×‚Ä‚Ì’¸“_‚ğ‘–¸
+          TParallel.For( 0, _Model.PoinModel.ChildsN-1, procedure( I:Integer )  //ã™ã¹ã¦ã®é ‚ç‚¹ã‚’èµ°æŸ»
           begin
-               with _Model.PoinModel.Childs[ I ] do  //’¸“_
+               with _Model.PoinModel.Childs[ I ] do  //é ‚ç‚¹
                begin
-                    Pos := Pos + 0.1 * ( Force0 + Force1 );  //—Í‚É‰‚¶‚ÄˆÚ“®
+                    Pos := Pos + 0.1 * ( Force0 + Force1 );  //åŠ›ã«å¿œã˜ã¦ç§»å‹•
                end;
           end,
           _ThreadPool );
      end;
 
-     _Shape.UpdateGeometry;  //ƒ|ƒŠƒSƒ“‚ğXV
+     _Shape.UpdateGeometry;  //ãƒãƒªã‚´ãƒ³ã‚’æ›´æ–°
 
-     Viewport3D1.Repaint;  //ƒsƒ…[‚ğXV
+     Viewport3D1.Repaint;  //ãƒ”ãƒ¥ãƒ¼ã‚’æ›´æ–°
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);  //Àsƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ê‡
+procedure TForm1.Button2Click(Sender: TObject);  //å®Ÿè¡Œãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸå ´åˆ
 begin
      Button2.Enabled := False;
      Button3.Enabled := True ;
 
-     Timer1.Enabled := True ;  //ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“ŠJn
+     Timer1.Enabled := True ;  //ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³é–‹å§‹
 end;
 
-procedure TForm1.Button3Click(Sender: TObject);  //’â~ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½ê‡
+procedure TForm1.Button3Click(Sender: TObject);  //åœæ­¢ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸå ´åˆ
 begin
-     Timer1.Enabled := False;  //ƒVƒ~ƒ…ƒŒ[ƒVƒ‡ƒ“’â~
+     Timer1.Enabled := False;  //ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³åœæ­¢
 
      Button2.Enabled := True ;
      Button3.Enabled := False;
 end;
 
-end. //######################################################################### ¡
+end. //######################################################################### â– 
