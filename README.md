@@ -1,4 +1,4 @@
 ﻿# Nodus
 結び目を生成する方法。
 
-![](https://bytebucket.org/Fujishiro-lab/nodus/raw/9bceb9a43a9a13b12c84bc26289ce05804544d48/--------/_SCREENSHOT/Nodus.png?token=30e2d05878b523b1e035422c0e13d41749f23cce)
+![](https://bytebucket.org/LUXOPHIA/nodus/raw/e46c61c4a065a7083be1176e9e7d1249dc659f9d/--------/_SCREENSHOT/Nodus.png?token=a91e22d72ab933fa87ea910e79d3337c3b81d711)
