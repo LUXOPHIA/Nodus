@@ -35,6 +35,18 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
        procedure SetMatrix( const Matrix_:TMatrix );
      public
        property Matrix :TMatrix read GetMatrix write SetMatrix;
+       ///// メソッド
+       procedure DrawCircle( const Center_ :TPointF;
+                             const Radius_ :Single;
+                             const Opacity_:Single = 1 );
+       procedure FillCircle( const Center_ :TPointF;
+                             const Radius_ :Single;
+                             const Opacity_:Single = 1 );
+       procedure DrawText( const Text_   :String;
+                           const Pos_    :TPointF;
+                           const AlignX_ :TTextAlign;
+                           const AlignY_ :TTextAlign;
+                           const Opacity_:Single = 1 );
      end;
 
      //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HMeshData
@@ -132,6 +144,8 @@ type //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
 
+function GapFit( const P0_,P1_:TPoint3D ) :TMatrix3D;
+
 implementation //############################################################### ■
 
 uses System.SysUtils, System.RTLConsts, System.AnsiStrings,
@@ -182,6 +196,80 @@ begin
 end;
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& public
+
+procedure HCanvas.DrawCircle( const Center_ :TPointF;
+                              const Radius_ :Single;
+                              const Opacity_:Single = 1 );
+begin
+     DrawEllipse( TRectF.Create( Center_.X-Radius_, Center_.Y-Radius_,
+                                 Center_.X+Radius_, Center_.Y+Radius_ ), Opacity_ );
+end;
+
+procedure HCanvas.FillCircle( const Center_ :TPointF;
+                              const Radius_ :Single;
+                              const Opacity_:Single = 1 );
+begin
+     FillEllipse( TRectF.Create( Center_.X-Radius_, Center_.Y-Radius_,
+                                 Center_.X+Radius_, Center_.Y+Radius_ ), Opacity_ );
+end;
+
+procedure HCanvas.DrawText( const Text_   :String;
+                            const Pos_    :TPointF;
+                            const AlignX_ :TTextAlign;
+                            const AlignY_ :TTextAlign;
+                            const Opacity_:Single = 1 );
+var
+   W, H, W2, H2 :Single;
+   R :TRectF;
+begin
+     W := TextWidth ( Text_ );
+     H := TextHeight( Text_ );
+
+     with R do
+     begin
+          case AlignX_ of
+            TTextAlign.Leading:
+               begin
+                    Left   := Pos_.X     ;
+                    Right  := Pos_.X + W ;
+               end;
+            TTextAlign.Center:
+               begin
+                    W2 := W / 2;
+
+                    Left   := Pos_.X - W2;
+                    Right  := Pos_.X + W2;
+               end;
+            TTextAlign.Trailing:
+               begin
+                    Left   := Pos_.X - W ;
+                    Right  := Pos_.X     ;
+               end;
+          end;
+
+          case AlignY_ of
+            TTextAlign.Leading:
+               begin
+                    Top    := Pos_.Y     ;
+                    Bottom := Pos_.Y + H ;
+               end;
+            TTextAlign.Center:
+               begin
+                    H2 := H / 2;
+
+                    Top    := Pos_.Y - H2;
+                    Bottom := Pos_.Y + H2;
+               end;
+            TTextAlign.Trailing:
+               begin
+                    Top    := Pos_.Y - H ;
+                    Bottom := Pos_.Y     ;
+               end;
+          end;
+     end;
+
+     FillText( R, Text_, False, Opacity_, [], AlignX_, AlignY_ );
+end;
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HMeshData
 
@@ -581,6 +669,35 @@ begin
 end;
 
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$【ルーチン】
+
+function GapFit( const P0_,P1_:TPoint3D ) :TMatrix3D;
+var
+   AX, AY ,AZ, AP, E :TPoint3D;
+begin
+     AY := ( P1_ - P0_ ).Normalize;
+     AP := ( P1_ + P0_ ) / 2;
+
+     with AY do
+     begin
+          case MinI( Abs( X ), Abs( Y ) ,Abs( Z ) ) of
+            1: E := TPoint3D.Create( 1, 0, 0 );
+            2: E := TPoint3D.Create( 0, 1, 0 );
+            3: E := TPoint3D.Create( 0, 0, 1 );
+          end;
+
+          AZ := CrossProduct( E ).Normalize;
+
+          AX := CrossProduct( AZ );
+     end;
+
+     with Result do
+     begin
+          m11 := AX.X;  m12 := AX.Y;  m13 := AX.Z;  m14 := 0;
+          m21 := AY.X;  m22 := AY.Y;  m23 := AY.Z;  m24 := 0;
+          m31 := AZ.X;  m32 := AZ.Y;  m33 := AZ.Z;  m34 := 0;
+          m41 := AP.X;  m42 := AP.Y;  m43 := AP.Z;  m44 := 1;
+     end;
+end;
 
 //############################################################################## □
 
