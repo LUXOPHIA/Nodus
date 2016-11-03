@@ -26,7 +26,7 @@ object Form1: TForm1
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      Text = #21021#26399#21270
+      Text = #32016#29983#25104
       OnClick = Button1Click
     end
     object GroupBox1: TGroupBox

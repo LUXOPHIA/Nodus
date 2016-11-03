@@ -18,7 +18,7 @@ uses
   LUX.Matrix.L3 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L3.pas',
   LUX.Matrix.L4 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L4.pas',
   LUX.Matrix.L2 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L2.pas',
-  TUX.Nodus in '_LIBRARY\TUX.Nodus.pas',
+  LIB.Nodus in '_LIBRARY\LIB.Nodus.pas',
   LUX.Brep.Wire.D3 in '_LIBRARY\LUXOPHIA\LUX.Brep\LUX.Brep.Wire.D3.pas',
   LUX.Brep.Wire in '_LIBRARY\LUXOPHIA\LUX.Brep\LUX.Brep.Wire.pas',
   LUX.FMX in '_LIBRARY\LUXOPHIA\LUX.FMX\LUX.FMX.pas';

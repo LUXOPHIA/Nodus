@@ -5,10 +5,11 @@ interface //####################################################################
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
-  System.Math.Vectors, FMX.Objects3D, FMX.MaterialSources, FMX.Controls3D,
-  FMX.Viewport3D, FMX.StdCtrls, FMX.Objects, FMX.Controls.Presentation,
+  System.Math.Vectors,
+  FMX.Types3D, FMX.Controls3D, FMX.Objects3D, FMX.Viewport3D,
+  FMX.StdCtrls, FMX.Controls.Presentation,
   LUX, LUX.D3, LUX.Geometry.D3, LUX.Matrix.L4,
-  TUX.Nodus, FMX.Types3D;
+  LIB.Nodus;
 
 type
   TForm1 = class(TForm)
