@@ -200,7 +200,7 @@ begin
                     Force1 := TSingle3D.Create( 0, 0, 0 );
                end;
           end,
-          _ThreadPool );
+          _ThreadPool_ );
 
           ///// 線分からの力を頂点へ加算
 
@@ -251,7 +251,7 @@ begin
                with W0.Poin0 do Force1 := Force1 + F;
                with W0.Poin1 do Force0 := Force0 + F;
           end,
-          _ThreadPool );
+          _ThreadPool_ );
 
           ///// 頂点を力に応じて移動
 
@@ -262,7 +262,7 @@ begin
                     Pos := Pos + 0.1 * ( Force0 + Force1 );  //力に応じて移動
                end;
           end,
-          _ThreadPool );
+          _ThreadPool_ );
      end;
 
      _Shape.UpdateGeometry;  //ポリゴンを更新
