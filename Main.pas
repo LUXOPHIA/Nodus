@@ -8,7 +8,7 @@ uses
   System.Math.Vectors,
   FMX.Types3D, FMX.Controls3D, FMX.Objects3D, FMX.Viewport3D,
   FMX.StdCtrls, FMX.Controls.Presentation,
-  LUX, LUX.D3, LUX.Geometry.D3, LUX.Matrix.L4,
+  LUX, LUX.D3,
   LIB.Nodus;
 
 type

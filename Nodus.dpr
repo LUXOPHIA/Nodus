@@ -15,13 +15,20 @@ uses
   LUX.Geometry in '_LIBRARY\LUXOPHIA\LUX.Geometry\LUX.Geometry.pas',
   LUX.Graph in '_LIBRARY\LUXOPHIA\LUX.Graph\LUX.Graph.pas',
   LUX.Graph.Tree in '_LIBRARY\LUXOPHIA\LUX.Graph\LUX.Graph.Tree.pas',
-  LUX.Matrix.L3 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L3.pas',
-  LUX.Matrix.L4 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L4.pas',
-  LUX.Matrix.L2 in '_LIBRARY\LUXOPHIA\LUX.Matrix\LUX.Matrix.L2.pas',
   LIB.Nodus in '_LIBRARY\LIB.Nodus.pas',
   LUX.Brep.Wire.D3 in '_LIBRARY\LUXOPHIA\LUX.Brep\LUX.Brep.Wire.D3.pas',
   LUX.Brep.Wire in '_LIBRARY\LUXOPHIA\LUX.Brep\LUX.Brep.Wire.pas',
-  LUX.FMX in '_LIBRARY\LUXOPHIA\LUX.FMX\LUX.FMX.pas';
+  LUX.FMX in '_LIBRARY\LUXOPHIA\LUX.FMX\LUX.FMX.pas',
+  LUX.D4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D4.pas',
+  LUX.D4.V4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D4.V4.pas',
+  LUX.M2 in '_LIBRARY\LUXOPHIA\LUX\LUX.M2.pas',
+  LUX.M3 in '_LIBRARY\LUXOPHIA\LUX\LUX.M3.pas',
+  LUX.M4 in '_LIBRARY\LUXOPHIA\LUX\LUX.M4.pas',
+  LUX.D2.M4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D2.M4.pas',
+  LUX.D2.V4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D2.V4.pas',
+  LUX.D3.M4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D3.M4.pas',
+  LUX.D3.V4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D3.V4.pas',
+  LUX.D4.M4 in '_LIBRARY\LUXOPHIA\LUX\LUX.D4.M4.pas';
 
 {$R *.res}
 
